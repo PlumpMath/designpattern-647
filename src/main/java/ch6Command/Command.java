@@ -5,4 +5,5 @@ package ch6Command;
  */
 public interface Command {
     public void execute();
+    public void undo();
 }
