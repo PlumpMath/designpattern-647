@@ -22,17 +22,24 @@ public class CeilingFan {
 
     public void high() {
         speed = HIGH;
+
+        System.out.println("Ceiling Fan Speed High");
     }
 
     public void medium() {
         speed = MEDIUM;
+        System.out.println("Ceiling Fan Speed Medium");
     }
 
     public void low() {
         speed = LOW;
+
+        System.out.println("Ceiling Fan Speed Low");
     }
 
     public void off() {
         speed = OFF;
+
+        System.out.println("Ceiling Fan Speed Off");
     }
 }

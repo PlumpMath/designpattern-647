@@ -14,7 +14,7 @@ public class CeilingFanOffCommand implements Command {
 
     public void execute() {
         prevSpeed = ceilingFan.getSpeed();
-        ceilingFan.medium();
+        ceilingFan.off();
     }
 
     public void undo() {

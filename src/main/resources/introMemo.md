@@ -1,5 +1,8 @@
 # Head First 设计模式
 
+中英文PDF下载链接
+[中文版](http://download.csdn.net/detail/justgono/7321467)[英文版](http://download.csdn.net/detail/keepthinking_/4839209)
+
 ## OO基础
 
 抽象；

@@ -23,26 +23,55 @@ public class RemoteLoader {
 //        System.out.println(remote);
 //        remote.undoButtonWasPushed();
 
+
+//
+//        RemoteControlWithUndo remoteControlWithUndo = new RemoteControlWithUndo();
+//
+//        CeilingFan ceilingFan = new CeilingFan("Living Room");
+//
+//        CeilingFanHighCommand ceilingFanHighCommand = new CeilingFanHighCommand(ceilingFan);
+//        CeilingFanMediumCommand ceilingFanMediumCommand = new CeilingFanMediumCommand(ceilingFan);
+//        CeilingFanOffCommand ceilingFanOffCommand = new CeilingFanOffCommand(ceilingFan);
+//
+//        remoteControlWithUndo.setOnCommand(0, ceilingFanMediumCommand, ceilingFanOffCommand);
+//        remoteControlWithUndo.setOnCommand(1, ceilingFanHighCommand, ceilingFanOffCommand);
+//
+//        remoteControlWithUndo.onButtonWasPushed(0);
+//        remoteControlWithUndo.offButtonWasPushed(0);
+//        System.out.println(remoteControlWithUndo);
+//        remoteControlWithUndo.undoButtonWasPushed();
+//
+//        remoteControlWithUndo.onButtonWasPushed(1);
+//        System.out.println(remoteControlWithUndo);
+//        remoteControlWithUndo.undoButtonWasPushed();
+//
+
+
         RemoteControlWithUndo remoteControlWithUndo = new RemoteControlWithUndo();
 
-        CeilingFan ceilingFan = new CeilingFan("Living Room");
+        Light light = new Light("Living Room");
+        TV tv = new TV("Living Room");
+        Stereo stereo = new Stereo("Living Room");
+        Hottub hottub = new Hottub();
 
-        CeilingFanHighCommand ceilingFanHighCommand = new CeilingFanHighCommand(ceilingFan);
-        CeilingFanMediumCommand ceilingFanMediumCommand = new CeilingFanMediumCommand(ceilingFan);
-        CeilingFanOffCommand ceilingFanOffCommand = new CeilingFanOffCommand(ceilingFan);
+        LightOnCommand lightOnCommand = new LightOnCommand(light);
+        StereoOnCommand stereoOnCommand = new StereoOnCommand(stereo);
+        TVOnCommand tvOnCommand = new TVOnCommand(tv);
+        HottubOnCommand hottubOnCommand = new HottubOnCommand(hottub);
 
-        remoteControlWithUndo.setOnCommand(0, ceilingFanMediumCommand, ceilingFanOffCommand);
-        remoteControlWithUndo.setOnCommand(1, ceilingFanHighCommand, ceilingFanOffCommand);
+        LightOffCommand lightOffCommand = new LightOffCommand(light);
+        StereoOffCommand stereoOffCommand = new StereoOffCommand(stereo);
+        TVOffCommand tvOffCommand = new TVOffCommand(tv);
+        HottubOffCommand hottubOffCommand = new HottubOffCommand(hottub);
+
+        Command[] partyOn = {lightOnCommand, stereoOnCommand, tvOnCommand, hottubOnCommand};
+        Command[] partyOff = {lightOffCommand, stereoOffCommand, tvOffCommand, hottubOffCommand};
+
+        MacroCommand partyOnCommand = new MacroCommand(partyOn);
+        MacroCommand partyOffCommand = new MacroCommand(partyOff);
+        remoteControlWithUndo.setOnCommand(0, partyOnCommand, partyOffCommand);
 
         remoteControlWithUndo.onButtonWasPushed(0);
         remoteControlWithUndo.offButtonWasPushed(0);
-        System.out.println(remoteControlWithUndo);
-        remoteControlWithUndo.undoButtonWasPushed();
-
-        remoteControlWithUndo.onButtonWasPushed(1);
-        System.out.println(remoteControlWithUndo);
-        remoteControlWithUndo.undoButtonWasPushed();
-
-
     }
 }
